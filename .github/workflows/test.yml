@@ -27,3 +27,4 @@ jobs:
       - run: "bundle install --with v2"
       - run: "bundle exec rake pact:v2:spec"
       - run: "bundle exec rake pact:publish"
+        if: runner.os != 'MacOS'

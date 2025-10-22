@@ -34,3 +34,6 @@ coverage
 spec/examples.txt
 
 .DS_Store
+
+# pact files
+spec/pacts

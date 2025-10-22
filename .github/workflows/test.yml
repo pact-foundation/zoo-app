@@ -23,5 +23,6 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby_version }}
       - run: "bundle install"
-      - run: "bundle exec rake spec"
+      - run: "bundle exec rake pact:spec"
+      - run: "bundle exec rake pact:v2:spec"
       - run: "bundle exec rake pact:publish"

@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby_version: ["3.3"]
-        os: ["ubuntu-latest","windows-latest","macos-13", "macos-latest"]
+        os: ["ubuntu-latest","windows-latest","macos-15-intel", "macos-latest"]
     steps:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@master
@@ -24,5 +24,7 @@ jobs:
           ruby-version: ${{ matrix.ruby_version }}
       - run: "bundle install"
       - run: "bundle exec rake pact:spec"
+      - run: "bundle install --with v2"
       - run: "bundle exec rake pact:v2:spec"
       - run: "bundle exec rake pact:publish"
+        if: runner.os != 'MacOS'

@@ -7,10 +7,15 @@ group :development, :test do
   else
     gem 'pact'
   end
-  gem 'combustion'
-  gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]  
+
   gem 'pact_broker-client'
   gem 'pry'
+
+  group :v2, optional: true do
+    gem "pact-ffi", "~> 0.4.28"
+    gem 'combustion'
+    gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]  
+  end
 end
 
 gem 'rake'
